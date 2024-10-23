@@ -4,7 +4,7 @@ import {ScalableMapWidget} from "../../widgets/scalableMap";
 export const HomePage = memo(function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <h1>Scalable Map</h1>
       <ScalableMapWidget />
     </>
   )
