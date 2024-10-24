@@ -1,1 +1,2 @@
-export * from "./getConnectedNodes.ts"
+export * from "./getConnectedNodes";
+export * from "./generateId";
