@@ -4,7 +4,6 @@ import {PostNodesDto} from "../interfaces";
 export class FlowApi {
   public static PostNodes = async ({nodes, edges}: PostNodesDto) => {
     const data = getConnectedNodes(nodes, edges);
-    console.log("Connected nodes", data);
     try {
       const response = await fetch("https://test/", {
         method: "POST",
