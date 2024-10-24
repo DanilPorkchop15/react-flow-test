@@ -21,7 +21,7 @@ type SubProcessNodeProps = NodeProps & {
 
 export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
 
-  const {getNodes, setNodes} = useReactFlow();
+  const {setNodes} = useReactFlow();
 
   const field1Text = data?.field1?.text || 'Field 1';
   const field2Text = data?.field2?.text || 'Field 2';
@@ -63,8 +63,7 @@ export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
 
   useEffect(() => {
     updateNodeData(field1, label1, field2, label2, field3, label3);
-    console.log(getNodes())
-  }, [field1, label1, field2, label2, field3, label3, updateNodeData, getNodes]);
+  }, [field1, label1, field2, label2, field3, label3, updateNodeData]);
 
 
   return (
@@ -92,7 +91,7 @@ export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
           onLabelChange={setLabel3}
         />
       </div>
-      <Handle type="target" position={Position.Top} id="process" />
+      <Handle type="target" position={Position.Top} id="subPlibrocess" />
     </NodeWrapper>
   );
 });

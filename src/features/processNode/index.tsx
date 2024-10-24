@@ -16,7 +16,7 @@ type SubProcessNodeProps = NodeProps & {
 };
 
 export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
-  const { getNodes, setNodes } = useReactFlow();
+  const { setNodes } = useReactFlow();
 
   const field1Text = data?.field1?.text || 'Field 1';
   const field2Text = data?.field2?.text || 'Field 2';
@@ -54,8 +54,7 @@ export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
 
   useEffect(() => {
     updateNodeData(field1, label1, field2, label2);
-    console.log(getNodes())
-  }, [field1, label1, field2, label2, updateNodeData, getNodes]);
+  }, [field1, label1, field2, label2, updateNodeData]);
 
   return (
     <NodeWrapper>
