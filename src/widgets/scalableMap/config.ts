@@ -1,5 +1,5 @@
 import {ProcessNode} from "../../features/processNode";
-import type { Node } from "@xyflow/react";
+import type {Edge, Node} from "@xyflow/react";
 import {NODE_TYPES} from "../../shared/config";
 import {SubProcessNode} from "../../features/subProcess";
 
@@ -13,7 +13,7 @@ export const initialNodes: Node[] = [
   {
     id: '1',
     type: 'processNode',
-    data: { text1: 'Node 1' },
+    data: { field1: { text: 'Test Text', label: 'Test Label' } },
     position: { x: 100, y: 50 },
   },
   {
@@ -22,4 +22,8 @@ export const initialNodes: Node[] = [
     data: { field1: { text: 'Node 2' }, field2: { text: 'Node 3' } },
     position: { x: 400, y: 150 },
   }
+]
+
+export const initialEdges: Edge[] = [
+  { id: 'e1-2', source: '1', target: '2', animated: true },
 ]
