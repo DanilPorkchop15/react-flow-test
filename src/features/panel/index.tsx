@@ -1,7 +1,6 @@
-import {Panel} from "@xyflow/react";
+import {Node, Panel} from "@xyflow/react";
 import React, {useCallback} from "react";
 import {NODE_TYPES} from "../../shared/config";
-import {Node} from "@xyflow/react";
 import {getNodeId} from "./lib";
 
 interface AddNodesPanelProps {
@@ -13,7 +12,7 @@ export const AddNodesPanelFeature = ({setNodes}: AddNodesPanelProps) => {
   const onAddProcess = useCallback(() => {
     const newNode = {
       id: getNodeId(),
-      data: { label: 'Added node' },
+      data: {label: 'Added node'},
       position: {
         x: (Math.random() - 0.5) * 400,
         y: (Math.random() - 0.5) * 400,
@@ -26,7 +25,7 @@ export const AddNodesPanelFeature = ({setNodes}: AddNodesPanelProps) => {
   const onAddSubProcess1 = useCallback(() => {
     const newNode = {
       id: getNodeId(),
-      data: { label: 'Added node' },
+      data: {label: 'Added node'},
       position: {
         x: (Math.random() - 0.5) * 400,
         y: (Math.random() - 0.5) * 400,
@@ -39,7 +38,7 @@ export const AddNodesPanelFeature = ({setNodes}: AddNodesPanelProps) => {
   const onAddSubProcess2 = useCallback(() => {
     const newNode = {
       id: getNodeId(),
-      data: { label: 'Added node' },
+      data: {label: 'Added node'},
       position: {
         x: (Math.random() - 0.5) * 400,
         y: (Math.random() - 0.5) * 400,
@@ -48,7 +47,6 @@ export const AddNodesPanelFeature = ({setNodes}: AddNodesPanelProps) => {
     };
     setNodes((nds) => nds.concat(newNode));
   }, [setNodes]);
-
 
 
   return (

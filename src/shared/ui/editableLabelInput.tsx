@@ -5,7 +5,7 @@ export const EditableLabelInput = memo<{
   value: string;
   onInputChange: (value: string) => void;
   onLabelChange: (label: string) => void;
-}>(({ label, value, onInputChange, onLabelChange }) => {
+}>(({label, value, onInputChange, onLabelChange}) => {
   const labelRef = useRef<HTMLLabelElement>(null);
 
   const handleLabelBlur = useCallback(
@@ -26,13 +26,13 @@ export const EditableLabelInput = memo<{
       >
         {label}
       </label>
-      <br />
+      <br/>
       <input
         type="text"
         value={value}
         onChange={(e) => onInputChange(e.target.value)}
         className="nodrag"
-        style={{ border: '1px solid black' }}
+        style={{border: '1px solid black'}}
       />
     </>
   );

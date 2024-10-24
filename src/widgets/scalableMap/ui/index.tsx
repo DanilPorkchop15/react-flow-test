@@ -26,7 +26,7 @@ export function ScalableMapWidget() {
   );
 
   return (
-    <div style={{ height: '80vh', width: '100%', border: '4px dotted black' }}>
+    <div style={{height: '80vh', width: '100%', border: '4px dotted black'}}>
       <ReactFlow
         nodeTypes={nodeTypes}
         nodes={nodes as Node[]}
@@ -37,11 +37,11 @@ export function ScalableMapWidget() {
         minZoom={0.5}
         maxZoom={2}
       >
-        <Background bgColor="#ffe" />
-        <Controls />
-        <AddNodesPanelFeature setNodes={setNodes} />
+        <Background bgColor="#ffe"/>
+        <Controls/>
+        <AddNodesPanelFeature setNodes={setNodes}/>
       </ReactFlow>
-      <button onClick={() => FlowApi.PostNodes({ nodes: getNodes(), edges: getEdges() })}>
+      <button onClick={() => FlowApi.PostNodes({nodes: getNodes(), edges: getEdges()})}>
         REQUEST
       </button>
     </div>

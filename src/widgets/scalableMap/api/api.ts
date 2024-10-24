@@ -2,7 +2,7 @@ import {getConnectedNodes} from "../lib";
 import {PostNodesDto} from "../interfaces";
 
 export class FlowApi {
-  public static  PostNodes = async ({nodes, edges} : PostNodesDto) =>{
+  public static PostNodes = async ({nodes, edges}: PostNodesDto) => {
     const data = getConnectedNodes(nodes, edges);
     console.log("Connected nodes", data);
     try {

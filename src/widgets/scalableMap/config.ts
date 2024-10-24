@@ -13,17 +13,17 @@ export const initialNodes: Node[] = [
   {
     id: '1',
     type: 'processNode',
-    data: { field1: { text: 'Test Text', label: 'Test Label' } },
-    position: { x: 250, y: 50 },
+    data: {field1: {text: 'Test Text', label: 'Test Label'}},
+    position: {x: 250, y: 50},
   },
   {
     id: '2',
     type: 'subProcess1Node',
-    data: { field1: { text: 'Node 2' }, field2: { text: 'Node 3' } },
-    position: { x: 250, y: 300 },
+    data: {field1: {text: 'Node 2'}, field2: {text: 'Node 3'}},
+    position: {x: 250, y: 300},
   }
 ]
 
 export const initialEdges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
+  {id: 'e1-2', source: '1', target: '2', animated: true},
 ]

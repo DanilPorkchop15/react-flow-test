@@ -19,7 +19,7 @@ type SubProcessNodeProps = NodeProps & {
   };
 };
 
-export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
+export const SubProcessNode = memo(({data, id}: SubProcessNodeProps) => {
 
   const {setNodes} = useReactFlow();
 
@@ -40,7 +40,7 @@ export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
   const [label3, setLabel3] = useState(field3Label);
 
   const updateNodeData = useCallback(
-    (field1Text: string, field1Label: string, field2Text:string, field2Label: string, field3Text:string, field3Label: string  ) => {
+    (field1Text: string, field1Label: string, field2Text: string, field2Label: string, field3Text: string, field3Label: string) => {
       setNodes((nodes) =>
         nodes.map((node) => {
           if (node.id === id) {
@@ -48,9 +48,9 @@ export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
               ...node,
               data: {
                 ...node.data,
-                field1: { text: field1Text, label: field1Label },
-                field2: { text: field2Text, label: field2Label },
-                field3: { text: field3Text, label: field3Label },
+                field1: {text: field1Text, label: field1Label},
+                field2: {text: field2Text, label: field2Label},
+                field3: {text: field3Text, label: field3Label},
               },
             };
           }
@@ -76,14 +76,14 @@ export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
           onInputChange={setField1}
           onLabelChange={setLabel1}
         />
-        <br />
+        <br/>
         <EditableLabelInput
           label={label2}
           value={field2}
           onInputChange={setField2}
           onLabelChange={setLabel2}
         />
-        <br />
+        <br/>
         <EditableLabelInput
           label={label3}
           value={field3}
@@ -91,7 +91,7 @@ export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
           onLabelChange={setLabel3}
         />
       </div>
-      <Handle type="target" position={Position.Top} id="subPlibrocess" />
+      <Handle type="target" position={Position.Top} id="subPlibrocess"/>
     </NodeWrapper>
   );
 });

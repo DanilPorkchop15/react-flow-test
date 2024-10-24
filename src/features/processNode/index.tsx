@@ -15,8 +15,8 @@ type SubProcessNodeProps = NodeProps & {
   };
 };
 
-export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
-  const { setNodes } = useReactFlow();
+export const ProcessNode = memo(({data, id}: SubProcessNodeProps) => {
+  const {setNodes} = useReactFlow();
 
   const field1Text = data?.field1?.text || 'Field 1';
   const field2Text = data?.field2?.text || 'Field 2';
@@ -32,7 +32,7 @@ export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
 
 
   const updateNodeData = useCallback(
-    (field1Text: string, field1Label: string, field2Text:string, field2Label: string  ) => {
+    (field1Text: string, field1Label: string, field2Text: string, field2Label: string) => {
       setNodes((nodes) =>
         nodes.map((node) => {
           if (node.id === id) {
@@ -40,8 +40,8 @@ export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
               ...node,
               data: {
                 ...node.data,
-                field1: { text: field1Text, label: field1Label },
-                field2: { text: field2Text, label: field2Label },
+                field1: {text: field1Text, label: field1Label},
+                field2: {text: field2Text, label: field2Label},
               },
             };
           }
@@ -66,7 +66,7 @@ export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
           onInputChange={setField1}
           onLabelChange={setLabel1}
         />
-        <br />
+        <br/>
         <EditableLabelInput
           label={label2}
           value={field2}
@@ -74,7 +74,7 @@ export const ProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
           onLabelChange={setLabel2}
         />
       </div>
-      <Handle type="source" position={Position.Bottom} id="process" />
+      <Handle type="source" position={Position.Bottom} id="process"/>
     </NodeWrapper>
   );
 });

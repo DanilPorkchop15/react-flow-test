@@ -6,7 +6,7 @@ export const HomePage = memo(function Home() {
   return (
     <ReactFlowProvider>
       <h1>Scalable Map</h1>
-      <ScalableMapWidget />
+      <ScalableMapWidget/>
     </ReactFlowProvider>
   )
 })
