@@ -1,2 +1,2 @@
-export * from "./nodeWrapper";
-export * from "./editableLabelInput.tsx";
+export * from "./NodeWrapper.tsx";
+export * from "./EditableLabelInput.tsx";

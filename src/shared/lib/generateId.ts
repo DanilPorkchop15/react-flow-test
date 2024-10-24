@@ -1,0 +1,1 @@
+export const generateId = () => `randomnode_${+new Date()}`;
