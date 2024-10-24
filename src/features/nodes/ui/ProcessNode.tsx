@@ -2,7 +2,7 @@ import {memo, useEffect, useState} from 'react';
 import {Handle, Node, NodeProps, Position} from '@xyflow/react';
 import {EditableLabelInput, NodeWrapper} from "../../../shared/ui";
 import {ProcessNodeData} from "../interfaces";
-import {useUpdateNodeData} from "../lib";
+import {useUpdateNodeData} from "../../../shared/lib";
 
 type ProcessNodeProps = NodeProps<Node<ProcessNodeData>>
 
