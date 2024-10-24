@@ -34,7 +34,6 @@ export function ScalableMapWidget() {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-        fitView
         minZoom={0.5}
         maxZoom={2}
       >
