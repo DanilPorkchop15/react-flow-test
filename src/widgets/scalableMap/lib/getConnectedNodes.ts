@@ -5,7 +5,7 @@ export const getConnectedNodes = ( nodes: Node[], edges: Edge[]) => {
   const connectedEdges: Edge[] = [];
   nodes.forEach((node) => {
     edges.forEach((edge) => {
-      if (edge.source === node.id) {
+      if (edge.source === node.id || edge.target === node.id) {
         connectedNodes.push(node);
         connectedEdges.push(edge);
       }
