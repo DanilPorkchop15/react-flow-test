@@ -1,11 +1,12 @@
 import {getConnectedNodes} from "../lib";
 import {PostNodesDto} from "../interfaces";
+import {BASE_API_URL} from "../../../shared/config";
 
 export class FlowApi {
   public static PostNodes = async ({nodes, edges}: PostNodesDto) => {
     const data = getConnectedNodes(nodes, edges);
     try {
-      const response = await fetch("https://localhost:8080/", {
+      const response = await fetch(`${BASE_API_URL}/nodes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
