@@ -2,23 +2,20 @@ import {
   addEdge,
   Background,
   Connection,
-  Controls,
-  Node,
-  ReactFlow,
+  MiniMap,
+  Node, ReactFlow,
   useEdgesState,
-  useNodesState,
-  useReactFlow
+  useNodesState
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import {initialEdges, initialNodes, nodeTypes} from "../config";
 import {useCallback} from "react";
-import {AddNodesPanelFeature} from "../../../features/panel";
-import {FlowApi} from "../api";
+import {AddNodesPanelFeature} from "../../../features/addNodes";
+import {PostNodesPanelFeature} from "../../../features/postNodes";
 
 export function ScalableMapWidget() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const {getNodes, getEdges} = useReactFlow();
 
   const onConnect = useCallback(
     (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
@@ -38,12 +35,10 @@ export function ScalableMapWidget() {
         maxZoom={2}
       >
         <Background bgColor="#ffe"/>
-        <Controls>
-          <button onClick={() => FlowApi.PostNodes({nodes: getNodes(), edges: getEdges()})}>
-            Post Nodes
-          </button>
-        </Controls>
+
+        <MiniMap pannable nodeColor="#7ff87f" position="bottom-center"/>
         <AddNodesPanelFeature setNodes={setNodes}/>
+        <PostNodesPanelFeature />
       </ReactFlow>
     </div>
   );

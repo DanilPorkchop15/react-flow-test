@@ -1,7 +1,7 @@
 import {Node, Panel} from "@xyflow/react";
 import React, {useCallback} from "react";
-import {NODE_TYPES} from "../../shared/config";
-import {getNodeId} from "./lib";
+import {NODE_TYPES} from "../../../shared/config";
+import {getNodeId} from "../lib";
 
 interface AddNodesPanelProps {
   setNodes: React.Dispatch<React.SetStateAction<Node[]>>;

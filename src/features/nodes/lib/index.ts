@@ -1,1 +1,1 @@
-export * from "./useUpdateNodeData.ts"
+export * from "./useUpdateNodeData"

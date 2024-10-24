@@ -1,9 +1,9 @@
-import {getConnectedNodes} from "../lib";
 import {PostNodesDto} from "../interfaces";
 import {BASE_API_URL} from "../../../shared/config";
+import {getConnectedNodes} from "../../../shared/lib";
 
-export class FlowApi {
-  public static PostNodes = async ({nodes, edges}: PostNodesDto) => {
+export class PostNodesService {
+  public static postNodes = async ({nodes, edges}: PostNodesDto) => {
     const data = getConnectedNodes(nodes, edges);
 
     try {
