@@ -5,7 +5,7 @@ export class FlowApi {
   public static PostNodes = async ({nodes, edges}: PostNodesDto) => {
     const data = getConnectedNodes(nodes, edges);
     try {
-      const response = await fetch("https://test/", {
+      const response = await fetch("https://localhost:8080/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
