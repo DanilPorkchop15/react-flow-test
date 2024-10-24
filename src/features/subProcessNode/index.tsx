@@ -1,8 +1,8 @@
 import {memo, useEffect, useState} from 'react';
 import {Handle, Node, NodeProps, Position} from '@xyflow/react';
-import {EditableLabelInput, NodeWrapper} from "../../../shared/ui";
-import {SubProcessNodeData} from "../interfaces";
-import {useUpdateNodeData} from "../../../shared/lib";
+import {useUpdateNodeData} from "../../shared/lib";
+import {SubProcessNodeData} from "../../entities/subProcess";
+import {EditableLabelInput, NodeWrapper} from "../../shared/ui";
 
 type SubProcessNodeProps = NodeProps<Node<SubProcessNodeData>>
 
