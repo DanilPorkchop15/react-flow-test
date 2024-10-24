@@ -6,7 +6,7 @@ export const PostNodesPanelFeature = () => {
 
   return (
     <Panel position="bottom-right">
-      <button onClick={() => PostNodesService.postNodes({nodes: getNodes(), edges: getEdges()})}>
+      <button onClick={() => PostNodesService.postNodes(getNodes(), getEdges())}>
         Post Nodes
       </button>
     </Panel>
