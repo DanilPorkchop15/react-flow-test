@@ -1,5 +1,5 @@
-import { memo, useEffect, useState } from 'react';
-import { Handle, NodeProps, Position } from '@xyflow/react';
+import {memo, useCallback, useEffect, useState} from 'react';
+import {Handle, NodeProps, Position, useReactFlow} from '@xyflow/react';
 import {EditableLabelInput, NodeWrapper} from "../../shared/ui";
 
 type SubProcessNodeProps = NodeProps & {
@@ -19,7 +19,10 @@ type SubProcessNodeProps = NodeProps & {
   };
 };
 
-export const SubProcessNode = memo(({ data }: SubProcessNodeProps) => {
+export const SubProcessNode = memo(({ data, id }: SubProcessNodeProps) => {
+
+  const {getNodes, setNodes} = useReactFlow();
+
   const field1Text = data?.field1?.text || 'Field 1';
   const field2Text = data?.field2?.text || 'Field 2';
   const field3Text = data?.field3?.text || 'Field 3';
@@ -36,20 +39,33 @@ export const SubProcessNode = memo(({ data }: SubProcessNodeProps) => {
   const [label2, setLabel2] = useState(field2Label);
   const [label3, setLabel3] = useState(field3Label);
 
+  const updateNodeData = useCallback(
+    (field1Text: string, field1Label: string, field2Text:string, field2Label: string, field3Text:string, field3Label: string  ) => {
+      setNodes((nodes) =>
+        nodes.map((node) => {
+          if (node.id === id) {
+            return {
+              ...node,
+              data: {
+                ...node.data,
+                field1: { text: field1Text, label: field1Label },
+                field2: { text: field2Text, label: field2Label },
+                field3: { text: field3Text, label: field3Label },
+              },
+            };
+          }
+          return node;
+        })
+      );
+    },
+    [id, setNodes]
+  );
+
   useEffect(() => {
-    if (data.field1) {
-      data.field1.text = field1;
-      data.field1.label = label1;
-    }
-    if (data.field2) {
-      data.field2.text = field2;
-      data.field2.label = label2;
-    }
-    if (data.field3) {
-      data.field3.text = field3;
-      data.field3.label = label3;
-    }
-  }, [field1, field2, field3, label1, label2, label3, data]);
+    updateNodeData(field1, label1, field2, label2, field3, label3);
+    console.log(getNodes())
+  }, [field1, label1, field2, label2, field3, label3, updateNodeData, getNodes]);
+
 
   return (
     <NodeWrapper>
