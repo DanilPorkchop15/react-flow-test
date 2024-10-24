@@ -1,12 +1,11 @@
-import {ProcessNode} from "../../features/processNode";
 import type {Edge, Node} from "@xyflow/react";
 import {NODE_TYPES} from "../../shared/config";
-import {SubProcessNode} from "../../features/subProcess";
+import {NodesFeature} from "../../features/nodes";
 
 export const nodeTypes = {
-  [NODE_TYPES.processNode]: ProcessNode,
-  [NODE_TYPES.subProcess1Node]: SubProcessNode,
-  [NODE_TYPES.subProcess2Node]: SubProcessNode,
+  [NODE_TYPES.processNode]: NodesFeature.Process,
+  [NODE_TYPES.subProcess1Node]: NodesFeature.SubProcess,
+  [NODE_TYPES.subProcess2Node]: NodesFeature.SubProcess,
 }
 
 export const initialNodes: Node[] = [

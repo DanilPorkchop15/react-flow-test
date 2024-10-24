@@ -1,12 +1,12 @@
-import {memo, useCallback, useEffect, useState} from 'react';
-import {Handle, Node, NodeProps, Position, useReactFlow} from '@xyflow/react';
+import {memo, useEffect, useState} from 'react';
+import {Handle, Node, NodeProps, Position} from '@xyflow/react';
 import {EditableLabelInput, NodeWrapper} from "../../../shared/ui";
 import {ProcessNodeData} from "../interfaces";
+import {useUpdateNodeData} from "../lib";
 
 type ProcessNodeProps = NodeProps<Node<ProcessNodeData>>
 
 export const ProcessNode = memo(({data, id, type}: ProcessNodeProps) => {
-  const {setNodes} = useReactFlow();
 
   const field1Text = data?.field1?.text || 'Field 1';
   const field2Text = data?.field2?.text || 'Field 2';
@@ -21,29 +21,13 @@ export const ProcessNode = memo(({data, id, type}: ProcessNodeProps) => {
   const [label2, setLabel2] = useState(field2Label);
 
 
-  const updateNodeData = useCallback(
-    (field1Text: string, field1Label: string, field2Text: string, field2Label: string) => {
-      setNodes((nodes) =>
-        nodes.map((node) => {
-          if (node.id === id) {
-            return {
-              ...node,
-              data: {
-                ...node.data,
-                field1: {text: field1Text, label: field1Label},
-                field2: {text: field2Text, label: field2Label},
-              },
-            };
-          }
-          return node;
-        })
-      );
-    },
-    [id, setNodes]
-  );
+  const updateNodeData = useUpdateNodeData<ProcessNodeData>(id);
 
   useEffect(() => {
-    updateNodeData(field1, label1, field2, label2);
+    updateNodeData({
+      field1: {text: field1, label: label1},
+      field2: {text: field2, label: label2},
+    });
   }, [field1, label1, field2, label2, updateNodeData]);
 
   return (
