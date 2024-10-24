@@ -1,28 +1,32 @@
-import {ReactFlow, Controls, Background, NodeChange, EdgeChange, Connection, Node, Edge, addEdge, applyEdgeChanges, applyNodeChanges} from '@xyflow/react';
+import {
+  addEdge,
+  Background,
+  Connection,
+  Controls,
+  Node,
+  ReactFlow,
+  useEdgesState,
+  useNodesState,
+  useReactFlow
+} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import {initialNodes, nodeTypes} from "../config";
-import {useCallback, useState} from "react";
+import {useCallback} from "react";
 import {AddNodesPanelFeature} from "../../../features/panel";
+import {FlowApi} from "../api";
 
 export function ScalableMapWidget() {
-  const [nodes, setNodes] = useState<Node[]>(initialNodes);
-  const [edges, setEdges] = useState<Edge[]>([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const {getNodes} = useReactFlow()
 
-  const onNodesChange = useCallback(
-    (changes: NodeChange[]) => setNodes((nods) => applyNodeChanges(changes, nods)),
-    [setNodes]
-  )
-  const onEdgesChange = useCallback(
-    (changes: EdgeChange[]) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    [setEdges],
-  );
   const onConnect = useCallback(
     (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
     [setEdges],
   );
 
   return (
-    <div style={{ height: '500px', width: '100%', border: '4px dotted black' }}>
+    <div style={{height: '80vh', width: '100%', border: '4px dotted black'}}>
       <ReactFlow
         nodeTypes={nodeTypes}
         nodes={nodes as Node[]}
@@ -30,12 +34,15 @@ export function ScalableMapWidget() {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
-
+        fitView
+        minZoom={0.1}
+        maxZoom={2}
       >
-        <Background bgColor="#ffe" />
-        <Controls />
-        <AddNodesPanelFeature setNodes={setNodes} />
+        <Background bgColor="#ffe"/>
+        <Controls/>
+        <AddNodesPanelFeature setNodes={setNodes}/>
       </ReactFlow>
+      <button onClick={() => FlowApi.PostNodes(getNodes())}>REQUEST</button>
     </div>
   );
 }
