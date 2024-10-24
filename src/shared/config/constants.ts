@@ -1,7 +1,5 @@
-export const FLOW_KEY = 'xyflow';
-
 export const NODE_TYPES = {
-  processNode: 'processNode',
-  subProcess1Node: 'subProcess1Node',
-  subProcess2Node: 'subProcess2Node',
+  processNode: 'Процесс',
+  subProcess1Node: 'Подпроцесс 1',
+  subProcess2Node: 'Подпроцесс 2',
 }

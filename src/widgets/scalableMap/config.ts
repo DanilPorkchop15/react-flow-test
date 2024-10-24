@@ -12,13 +12,13 @@ export const nodeTypes = {
 export const initialNodes: Node[] = [
   {
     id: '1',
-    type: 'processNode',
+    type: NODE_TYPES.processNode,
     data: {field1: {text: 'Test Text', label: 'Test Label'}},
     position: {x: 250, y: 50},
   },
   {
     id: '2',
-    type: 'subProcess1Node',
+    type: NODE_TYPES.subProcess1Node,
     data: {field1: {text: 'Node 2'}, field2: {text: 'Node 3'}},
     position: {x: 250, y: 300},
   }

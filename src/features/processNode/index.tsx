@@ -15,7 +15,7 @@ type SubProcessNodeProps = NodeProps & {
   };
 };
 
-export const ProcessNode = memo(({data, id}: SubProcessNodeProps) => {
+export const ProcessNode = memo(({data, id, type}: SubProcessNodeProps) => {
   const {setNodes} = useReactFlow();
 
   const field1Text = data?.field1?.text || 'Field 1';
@@ -59,7 +59,7 @@ export const ProcessNode = memo(({data, id}: SubProcessNodeProps) => {
   return (
     <NodeWrapper>
       <div>
-        <h3>Процесс</h3>
+        <h3>{type}</h3>
         <EditableLabelInput
           label={label1}
           value={field1}
