@@ -38,12 +38,13 @@ export function ScalableMapWidget() {
         maxZoom={2}
       >
         <Background bgColor="#ffe"/>
-        <Controls/>
+        <Controls>
+          <button onClick={() => FlowApi.PostNodes({nodes: getNodes(), edges: getEdges()})}>
+            Post Nodes
+          </button>
+        </Controls>
         <AddNodesPanelFeature setNodes={setNodes}/>
       </ReactFlow>
-      <button onClick={() => FlowApi.PostNodes({nodes: getNodes(), edges: getEdges()})}>
-        REQUEST
-      </button>
     </div>
   );
 }
