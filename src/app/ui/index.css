@@ -46,3 +46,20 @@ input {
   font-weight: 500;
   margin: 3px;
 }
+
+button {
+  border-radius: 8px;
+  border: 2px solid black;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 3px;
+}
+
+button:hover {
+  border-color: #646cff;
+}
