@@ -1,7 +1,7 @@
 import {
   addEdge,
   Background,
-  Connection,
+  Connection, Controls,
   MiniMap,
   Node, ReactFlow,
   useEdgesState,
@@ -35,10 +35,11 @@ export function ScalableMapWidget() {
         maxZoom={2}
       >
         <Background bgColor="#ffe"/>
-
-        <MiniMap pannable nodeColor="#7ff87f" position="bottom-center"/>
+        <Controls />
+        <MiniMap pannable nodeColor="#7ff87f" position="bottom-center"
+                 style={{border: '3px solid black', borderRadius: '10px'}}/>
         <AddNodesPanelFeature setNodes={setNodes}/>
-        <PostNodesPanelFeature />
+        <PostNodesPanelFeature/>
       </ReactFlow>
     </div>
   );
